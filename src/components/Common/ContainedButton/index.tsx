@@ -1,12 +1,12 @@
 import { cn } from "@/lib/utils";
 
-interface ContaindButtonProps {
+interface ContainedButtonProps {
   onClick?: () => void;
   className?: string;
   children?: React.ReactNode;
 }
 
-export default function ContaindButton(props: ContaindButtonProps) {
+export default function ContainedButton(props: ContainedButtonProps) {
   const { onClick, className, children } = props;
   return (
     <button
