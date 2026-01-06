@@ -4,3 +4,15 @@ import { twMerge } from "tailwind-merge";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+export function formatOrderType(type: string | null): string {
+  type OrderType = "TABLE" | "DELIVERY" | "PICKUP";
+
+  const orderTypeMap: Record<OrderType, string> = {
+    TABLE: "Table",
+    DELIVERY: "Delivery",
+    PICKUP: "PickUp",
+  };
+
+  return orderTypeMap[type as OrderType] || "Test";
+}
