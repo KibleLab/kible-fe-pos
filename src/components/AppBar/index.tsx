@@ -1,5 +1,6 @@
-import { useNavigate } from 'react-router';
-import { useCurrentDateTime } from '../../hooks/useCurrentDateTime';
+import { useNavigate } from "react-router";
+import { useCurrentDateTime } from "@/hooks/useCurrentDateTime";
+import { cn } from "@/lib/utils";
 
 interface AppBarProps {
   children?: React.ReactNode;
@@ -8,40 +9,42 @@ interface AppBarProps {
 export default function AppBar({ children }: AppBarProps) {
   const navigate = useNavigate();
   const currentDateTime = useCurrentDateTime();
-
   return (
     <div
-      className="
-      fixed top-0 left-0 z-50
-      flex items-center justify-between
-      w-full h-25.5 px-9
-      bg-white border-b-2 border-[#DDDDDD]">
-      <div className="flex items-center h-full">
+      className={cn(
+        "flex items-center justify-between",
+        "fixed top-0 left-0",
+        "w-full h-25.5 px-9",
+        "bg-white border-b-2 border-[#DDD]",
+      )}>
+      <div className={cn("flex items-center w-fit h-full")}>
         <button
-          className="
-            flex items-center justify-center
-            w-50 h-full
-            bg-transparent cursor-pointer
-            transition-all duration-200
-            hover:bg-blue-500/5 hover:opacity-80 group"
-          onClick={() => navigate('/')}>
+          className={cn(
+            "flex items-center justify-center",
+            "w-50 h-full",
+            "cursor-pointer transition-all duration-200",
+            "hover:bg-blue-500/5 hover:opacity-80",
+          )}
+          onClick={() => navigate("/")}>
           <span
-            className="
-            font-['Paperlogy'] text-4xl font-black
-            bg-linear-to-r from-[#00d1ff] to-[#0066ff] 
-            bg-clip-text text-transparent
-            select-none">
+            className={cn(
+              "font-['Paperlogy'] font-black text-4xl text-transparent",
+              "bg-clip-text bg-linear-to-r from-[#00d1ff] to-[#0066ff]",
+              "select-none",
+            )}>
             Kible POS
           </span>
         </button>
       </div>
-      <div className="flex items-center h-full">
+      <div className={cn("flex items-center w-fit h-full")}>
         {children}
         <div
-          className="
-          flex items-center justify-center
-          w-50 h-full
-          font-['Noto_Sans_KR'] text-lg font-medium text-black">
+          className={cn(
+            "flex items-center justify-center",
+            "w-50 h-full",
+            "font-medium text-lg text-black",
+            "select-none",
+          )}>
           {currentDateTime}
         </div>
       </div>

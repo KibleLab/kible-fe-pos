@@ -1,5 +1,5 @@
-import { Navigate } from 'react-router';
+import { Navigate } from "react-router";
 
 export default function IndexPage() {
-  return <Navigate to='/orders' replace />;
+  return <Navigate to="/orders?orderType=HALL" replace />;
 }
