@@ -6,10 +6,10 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatOrderType(type: string | null): string {
-  type OrderType = "TABLE" | "DELIVERY" | "PICKUP";
+  type OrderType = "HALL" | "DELIVERY" | "PICKUP";
 
   const orderTypeMap: Record<OrderType, string> = {
-    TABLE: "Table",
+    HALL: "Table",
     DELIVERY: "Delivery",
     PICKUP: "PickUp",
   };
