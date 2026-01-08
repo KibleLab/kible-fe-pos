@@ -1,0 +1,36 @@
+name: Kible POS Beta Deployment
+
+on:
+  push:
+    tags:
+      - "v[0-9]*.[0-9]*.[0-9]*-beta.[0-9]*"
+
+env:
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+
+      - name: Install mise
+        uses: jdx/mise-action@v3
+        with:
+          install: true
+          cache: true
+
+      - name: Pull Vercel Environment Information
+        run: pnpm dlx vercel pull --yes --environment=preview --token=$VERCEL_TOKEN
+
+      - name: Build Project Artifacts
+        run: pnpm dlx vercel build --token=$VERCEL_TOKEN
+
+      - name: Deploy Project Artifacts to Vercel
+        run: pnpm dlx vercel deploy --prebuilt --token=$VERCEL_TOKEN
+
+      - name: Update Vercel Preview Alias
+        run: pnpm dlx vercel alias set $DEPLOY_URL beta.pos.kiblelab.site --token ${{ secrets.VERCEL_TOKEN }}
