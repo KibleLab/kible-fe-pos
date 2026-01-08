@@ -31,3 +31,6 @@ jobs:
 
       - name: Deploy Project Artifacts to Vercel
         run: pnpm dlx vercel deploy --prebuilt --token=$VERCEL_TOKEN
+
+      - name: Update Vercel Preview Alias
+        run: pnpm dlx vercel alias set $DEPLOY_URL beta.pos.kiblelab.site --token ${{ secrets.VERCEL_TOKEN }}
