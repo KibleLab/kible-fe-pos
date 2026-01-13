@@ -91,7 +91,7 @@ export default function OrderDetailsPage() {
         </div>
         <div
           className={cn(
-            "flex flex-col justify-between gap-9",
+            "flex flex-col justify-between",
             "fixed top-25.5 right-0",
             "w-165 h-244.5 p-9",
             "bg-white",
