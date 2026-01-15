@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router";
-import AppBar from "@/components/AppBar";
-import AppBarTextButton from "@/components/AppBar/AppBarTextButton";
+import AppBar from "@/components/Common/AppBar";
+import AppBarTextButton from "@/components/Common/AppBar/AppBarTextButton";
 import OrdersButton from "@/components/Orders/OrdersButton";
 import { cn } from "@/lib/utils";
 

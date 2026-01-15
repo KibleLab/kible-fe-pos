@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
-import AppBar from "@/components/AppBar";
-import AppBarIconButton from "@/components/AppBar/AppBarIconButton";
+import AppBar from "@/components/Common/AppBar";
+import AppBarIconButton from "@/components/Common/AppBar/AppBarIconButton";
 
 export default function MenuPage() {
   const navigate = useNavigate();
