@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router";
-import AppBar from "@/components/Common/AppBar";
-import AppBarTextButton from "@/components/Common/AppBar/AppBarTextButton";
-import OrdersButton from "@/components/Orders/OrdersButton";
 import { cn } from "@/lib/utils";
+import { AppBar, AppBarTextButton } from "@/components/Common/AppBar";
+import OrdersButton from "@/components/Orders/OrdersButton";
 
 interface Order {
   id: string;
@@ -26,9 +25,7 @@ export default function OrdersPage() {
     }
   });
 
-  const filteredOrders = orders.filter(
-    (order) => order.orderType === orderType,
-  );
+  const filteredOrders = orders.filter((order) => order.orderType === orderType);
 
   useEffect(() => {
     if (!searchParams.get("orderType")) {
@@ -40,10 +37,7 @@ export default function OrdersPage() {
     <>
       <header>
         <AppBar>
-          <AppBarTextButton
-            text="메뉴 관리"
-            onClick={() => navigate("/menu")}
-          />
+          <AppBarTextButton text="메뉴 관리" onClick={() => navigate("/menu")} />
         </AppBar>
       </header>
       <main>
@@ -60,9 +54,7 @@ export default function OrdersPage() {
               orderType={order.orderType}
               orderNo={order.orderNo}
               onClick={() =>
-                navigate(
-                  `/order-details?orderType=${order.orderType}&orderNo=${order.orderNo}`,
-                )
+                navigate(`/order-details?orderType=${order.orderType}&orderNo=${order.orderNo}`)
               }
             />
           ))}

@@ -1,7 +1,6 @@
 import { cn, formatOrderType } from "@/lib/utils";
+import { DataLabel, TitleLabel } from "@/components/Common/Labels";
 import OrderMenu from "@/components/Orders/OrdersButton/OrderMenu";
-import TitleLabel from "@/components/Common/TitleLabel";
-import DataLabel from "@/components/Common/DataLabel";
 
 interface OrdersButtonProps {
   onClick?: () => void;
@@ -21,7 +20,7 @@ export default function OrdersButton(props: OrdersButtonProps) {
         "hover:opacity-80 select-none",
       )}
       onClick={onClick}>
-      <div className={cn("flex flex-row  w-full h-7.5")}>
+      <div className={cn("flex flex-row w-full h-7.5")}>
         <TitleLabel className={cn("w-1/2 h-full font-semibold text-2xl")}>
           {formatOrderType(orderType)} #{orderNo}
         </TitleLabel>
