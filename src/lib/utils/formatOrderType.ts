@@ -1,10 +1,3 @@
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
 export function formatOrderType(type: string | null): string {
   type OrderType = "HALL" | "DELIVERY" | "PICKUP";
 

@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import DataLabel from "@/components/Common/DataLabel";
+import { DataLabel } from "@/components/Common/Labels";
 
 interface OrderMenuProps {
   menu: string;
